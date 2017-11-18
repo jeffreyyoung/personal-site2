@@ -1,8 +1,34 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import Helmet from 'react-helmet';
-export default (props) => {
+export default class extends React.Component {
+	componentWillAppear(callback) {
+		console.log('will appear');
+		callback();
+}
+componentDidAppear() {
+		console.log('did appear');
+}
+
+componentWillEnter(callback) {
+		callback();
+		console.log('will enter');
+}
+componentDidEnter() {
+		console.log('did enter');
+}
+componentWillLeave(callback) {
+		callback();
+		console.log('wiil leave');
+}
+componentDidLeave() {
+		console.log('did leave');
+}
+componentWillUnmount() {
+		console.log('will unmount');
+}
 	
+	render() {
 	return (
 		<section className='bg-yellow black-90'>
 			<Helmet>
@@ -19,5 +45,5 @@ export default (props) => {
 				</div>
 			</div>
 		</section>
-	)
+	)}
 }

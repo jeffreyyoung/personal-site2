@@ -1,0 +1,10 @@
+.ProjectCard .img-wrapper {
+	height: 15rem;
+}
+.ProjectCard .text-wrapper {
+	height: 10rem;
+	overflow: hidden;
+}
+.ProjectCard img {
+	object-fit: cover;
+}
