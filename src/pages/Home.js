@@ -15,6 +15,8 @@ export default (props) => {
 					<Link to='/resume' className='reveal no-underline black grow f4 tc pointer'>Resume <span role='img' aria-label='point-down'>👇📋</span></Link>
 					<Link to='/about' className='reveal no-underline black grow f4 tc pointer'>About Me <span role='img' aria-label='point-down'>👈👦</span></Link>
 					<Link to='/blog' className='reveal no-underline black grow f4 tc pointer'>Blog <span role='img' aria-label='point-down'>👉📖</span></Link>
+					<Link to='/journal' className='dn reveal no-underline black grow f4 tc pointer'>Blog <span role='img' aria-label='point-down'>👉📖</span></Link>
+					
 				</div>
 			</div>
 		</section>

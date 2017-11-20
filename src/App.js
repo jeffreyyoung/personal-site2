@@ -7,11 +7,12 @@ import page from './hocs/page';
 import withProps from './hocs/withProps';
 import Home from './pages/Home';
 import About from './pages/About';
+import Blog from './pages/Blog';
 import Projects from './pages/Projects';
 import Project from './pages/Project';
 import Resume from './pages/Resume';
 import getAnimation from './util/getAnimation'
-
+import Journal from './pages/Journal';
 const App = withRouter(class AppMeow extends React.Component {
 	constructor(...args) {
 		super(...args);
@@ -25,15 +26,6 @@ const App = withRouter(class AppMeow extends React.Component {
 			this.animationIndex++;
 		}
 	}
-	
-	updateSpecialScript() {
-		var script = document.createElement("script");
-		// Add script content
-		script.innerHTML = this.props.location.pathname;
-		// Append
-		document.head.appendChild(script);
-	}
-	
 	
 	getAnimationClassNames(pathname) {
 		// switch(pathname) {
@@ -77,15 +69,18 @@ const App = withRouter(class AppMeow extends React.Component {
 						classNames={this.getAnimationClassNames(this.props.location.pathname)}
 						timeout={1000}
 						onEnter={el => el.className += ' '+this.getAnimationClassNames(this.props.location.pathname).enter}
+						onEntered={el => el.className = 'pt-page-current pt-page'}
 						onExit={el => el.className += ' '+this.getAnimationClassNames(this.props.location.pathname).exit}
 					>
 						<Switch location={location}>
 							<Route key={1} exact path='/' component={page(Home)} />
 							<Route key={2} exact path='/about' component={page(About)} />
 							<Route key={3} exact path='/projects' component={page(withProps(Projects))} />
+							<Route exact path='/blog' component={page(Blog)} />
+							<Route exact path='/journal' component={page(Journal)} />
 							<Route key={4} exact path='/resume' component={page(Resume)} />
 							<Route exact path='/projects/:project' component={page(withProps(Project))} />
-							<Route exact path='*' component={page(() => (<h1>not found</h1>))} />
+							
 						</Switch>
 					</Transition>
 				</TransitionGroup>
