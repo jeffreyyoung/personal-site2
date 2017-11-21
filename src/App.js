@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { TransitionGroup, Transition } from 'react-transition-group'
 import { BrowserRouter, Switch, Route, withRouter } from 'react-router-dom'
@@ -13,6 +12,8 @@ import Project from './pages/Project';
 import Resume from './pages/Resume';
 import getAnimation from './util/getAnimation'
 import Journal from './pages/Journal';
+import BlogPost from './pages/BlogPost';
+
 const App = withRouter(class AppMeow extends React.Component {
 	constructor(...args) {
 		super(...args);
@@ -56,34 +57,37 @@ const App = withRouter(class AppMeow extends React.Component {
 		// 		}
 		// }
 
-		return getAnimation(this.animationIndex);
+		return getAnimation(pathname);
 	}
 
 	render() {
 		this.checkLocation();
 		let {location} = this.props
 		return (
-				<TransitionGroup className='pt-perspective sans-serif'>
+			<div className='sans-serif'>
+				{/*<TransitionGroup className='pt-perspective sans-serif'>
 					<Transition
 						key={location.key}
-						classNames={this.getAnimationClassNames(this.props.location.pathname)}
 						timeout={1000}
 						onEnter={el => el.className += ' '+this.getAnimationClassNames(this.props.location.pathname).enter}
 						onEntered={el => el.className = 'pt-page-current pt-page'}
 						onExit={el => el.className += ' '+this.getAnimationClassNames(this.props.location.pathname).exit}
-					>
+					>*/}
 						<Switch location={location}>
 							<Route key={1} exact path='/' component={page(Home)} />
 							<Route key={2} exact path='/about' component={page(About)} />
 							<Route key={3} exact path='/projects' component={page(withProps(Projects))} />
-							<Route exact path='/blog' component={page(Blog)} />
+							<Route exact path='/blog' component={page(withProps(Blog))} />
 							<Route exact path='/journal' component={page(Journal)} />
 							<Route key={4} exact path='/resume' component={page(Resume)} />
 							<Route exact path='/projects/:project' component={page(withProps(Project))} />
+							<Route exact path='/blog/:post' component={page(withProps(BlogPost))} />
 							
 						</Switch>
+						{/*}
 					</Transition>
-				</TransitionGroup>
+				</TransitionGroup>*/}
+				</div>
 		)
 	}
 	

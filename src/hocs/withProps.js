@@ -22,6 +22,7 @@ export default (ComposedComponent) => {
 			if (!this.propsAreCached) {
 				routePropsLoader.load(this.jsonPath).then(childProps => {
 					//console.log('CHILD RPOPS', childProps);
+					console.log('LOADED THE PROPS');
 					this.setState({childProps, loading:false})
 				});
 			} else {
@@ -45,7 +46,7 @@ export default (ComposedComponent) => {
 		}
 		
 		render() {
-			return [(<ComposedComponent key={this.props.key || 3495098} {...this.props} loading={this.state.loading} {...this.state.childProps} />),
+			return [(<ComposedComponent key={this.props.key} {...this.props} loading={this.state.loading} {...this.state.childProps} />),
 				this.getHelmetComponent()
 			]
 		}
