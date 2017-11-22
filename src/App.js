@@ -13,7 +13,8 @@ import Resume from './pages/Resume';
 import getAnimation from './util/getAnimation'
 import Journal from './pages/Journal';
 import BlogPost from './pages/BlogPost';
-
+import NProgress from 'nprogress';
+import 'nprogress/nprogress.css';
 const App = withRouter(class AppMeow extends React.Component {
 	constructor(...args) {
 		super(...args);
@@ -28,6 +29,17 @@ const App = withRouter(class AppMeow extends React.Component {
 		}
 	}
 	
+	componentDidUpdate(prevProps) {
+	if (this.props.location !== prevProps.location) {
+		this.onRouteChanged();
+		}
+	}
+
+	onRouteChanged() {
+		NProgress.start();
+		NProgress.done();
+	}
+		
 	getAnimationClassNames(pathname) {
 		// switch(pathname) {
 		// 	case '/':
@@ -79,10 +91,9 @@ const App = withRouter(class AppMeow extends React.Component {
 							<Route key={3} exact path='/projects' component={page(withProps(Projects))} />
 							<Route exact path='/blog' component={page(withProps(Blog))} />
 							<Route exact path='/journal' component={page(Journal)} />
-							<Route key={4} exact path='/resume' component={page(Resume)} />
+							<Route key={4} exact path='/resume' component={page(withProps(Resume))} />
 							<Route exact path='/projects/:project' component={page(withProps(Project))} />
 							<Route exact path='/blog/:post' component={page(withProps(BlogPost))} />
-							
 						</Switch>
 						{/*}
 					</Transition>

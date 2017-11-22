@@ -1,13 +1,13 @@
 const mdFilesToJson = require('./mdFilesToJson');
 const data = require('static-data');
 
-async function getData() {
+async function getFiles() {
 	const mdFiles = await mdFilesToJson();
 	const blogFiles = mdFiles
 		.filter(m => m.path.startsWith('/blog'))
 		.map( (m,i) => ({
-			key: m.path.replace('.md', ''),
-			getData: () => ({
+			path: m.path.replace('.md', ''),
+			getJson: () => ({
 				post: {
 					html: m.html,
 					meta: m.meta
@@ -24,8 +24,8 @@ async function getData() {
 			} else {
 				nextProject = mdFiles[i+1];
 			}
-			const key = m.path.replace('.md', '');
-			const getData = async () => ({
+			const path = m.path.replace('.md', '');
+			const getJson = async () => ({
 				project: {
 					html: m.html,
 					meta: m.meta
@@ -38,17 +38,17 @@ async function getData() {
 					url: nextProject.path.replace('.md','')
 				}
 			});
-			return {key, getData}
+			return {path, getJson}
 		});
 	return [
 		{
-			key: 'about',
-			getData: async () => {
+			path: 'about',
+			getJson: async () => {
 				return {'hello': 'world'}
 			}
 		}, {
-			key: 'projects',
-			getData: async () => {
+			path: 'projects',
+			getJson: async () => {
 				const projects = mdFiles
 					.filter(m => m.path.startsWith('/projects'))
 					.map(m => {
@@ -63,8 +63,8 @@ async function getData() {
 				return {projects};
 			}
 		}, {
-			key: 'blog',
-			getData: async () => {
+			path: 'blog',
+			getJson: async () => {
 				const posts = mdFiles
 					.filter(m => m.path.startsWith('/blog'))
 					.map(m => {
@@ -75,10 +75,20 @@ async function getData() {
 					});
 				return {posts}
 			}
+		}, {
+			path: 'resume',
+			getJson: async () => {
+				console.log('HEREEEEEEEEEEEE');
+				const resume = mdFiles.filter(m => m.path.startsWith('/resume'))[0];
+				return {resume}
+			}
 		},
 		...individaulProjectFiles,
 		...blogFiles
 	]
 }
 
-data.set(getData, __dirname +'/../public/data');
+data.set(getFiles, {
+	pathPrefix: __dirname +'/../public/data/',
+	pathSuffix: '.json'
+});

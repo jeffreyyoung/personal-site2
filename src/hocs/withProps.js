@@ -1,15 +1,15 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import { withRouter } from 'react-router-dom'
-import routePropsLoader from './../util/routePropsLoader'
+import routePropsLoader from './../util/jsonDataLoader'
 
 export default (ComposedComponent) => {
 	return withRouter(class extends React.Component {
 		constructor(...args) {
 			super(...args);
-			this.jsonPath = routePropsLoader.getJsonPath(this.props.location.pathname);
-			const propsAreCached = routePropsLoader.isCached(this.jsonPathe);
-			const childProps = propsAreCached ? routePropsLoader.loadFromCache(this.jsonPath) : {};
+			const propsAreCached = routePropsLoader.isCached(this.location);
+
+			const childProps = propsAreCached ? routePropsLoader.loadFromCache(this.location) : {};
 			this.state = {
 				loading: !propsAreCached,
 				childProps
@@ -17,16 +17,17 @@ export default (ComposedComponent) => {
 			this.propsAreCached = propsAreCached;
 		}
 		
+		get location() {
+			return this.props.location.pathname;
+		}
 		
 		componentDidMount() {
 			if (!this.propsAreCached) {
-				routePropsLoader.load(this.jsonPath).then(childProps => {
-					//console.log('CHILD RPOPS', childProps);
-					console.log('LOADED THE PROPS');
+				routePropsLoader.load(this.location).then(childProps => {
+					//TODO HANDLE CASE WHERE CURRENT COMPONENT IS UNMOUNTED
 					this.setState({childProps, loading:false})
 				});
 			} else {
-				//console.log('FROM CACHE', routePropsLoader.loadFromCache(this.jsonPath))
 			}
 		}
 		
@@ -46,7 +47,7 @@ export default (ComposedComponent) => {
 		}
 		
 		render() {
-			return [(<ComposedComponent key={this.props.key} {...this.props} loading={this.state.loading} {...this.state.childProps} />),
+			return [(<ComposedComponent key={8453908534} {...this.props} loading={this.state.loading} {...this.state.childProps} />),
 				this.getHelmetComponent()
 			]
 		}

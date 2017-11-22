@@ -1,8 +1,9 @@
 import React from 'react';
 import NavBar from './../components/NavBar';
 import Link from './../components/Link';
-const staticDataLoader = require('static-data');
-export default ({posts}) => {
+export default (props) => {
+	console.log('BLOG PROPS', props);
+	const {posts} = props;
 	return (
 		<section className='bg-white'>
 			<div className='center min-vh-100 pa3 pt5 flex flex-column mw-1024'>

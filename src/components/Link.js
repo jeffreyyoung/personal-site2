@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { withRouter } from 'react-router-dom';
 import { createLocation } from 'history'
 import withApp from './../hocs/withApp';
+import NProgress from 'nprogress';
 
 const isModifiedEvent = (event) =>
   !!(event.metaKey || event.altKey || event.ctrlKey || event.shiftKey)
@@ -29,6 +30,7 @@ class Link extends React.Component {
 	}
 
 	handleClick = async (event) => {
+		NProgress.start();
 		if (this.props.onClick) {
 			this.props.onClick(event)
 		}
@@ -42,7 +44,6 @@ class Link extends React.Component {
 			event.preventDefault()
 			
 			if (this.props.loadJson) {
-				console.log('LOADING JSON');
 				try {
 					await this.props.app.loadJson(this.props.to);
 				} catch (e) {
@@ -70,7 +71,7 @@ class Link extends React.Component {
 		const location = typeof to === 'string' ? createLocation(to, null, null, history.location) : to
 
 		const href = history.createHref(location)
-		return <a {...props} onClick={this.handleClick} href={href} ref={innerRef}/>
+		return <a onClick={this.handleClick} href={href} className={this.props.className} ref={innerRef}>{this.props.children}</a>
 	}
 }
 

@@ -1,7 +1,6 @@
 import React from 'react';
-import createLoader from 'static-data/dist/loader';
+import loader from './../util/jsonDataLoader'; 
 
-const loader = createLoader('');
 const app = {
 	loadJson: loader.load.bind(loader)
 }

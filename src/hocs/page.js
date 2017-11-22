@@ -19,8 +19,8 @@ componentWillLeave(cb) {
 
 		
 		render() {
-			return (<div key={this.props.key} className={classNames('pt-page', {
-				'pt-page-current':true
+			return (<div key={this.props.key} className={classNames(/*'pt-page',*/ {
+				/*'pt-page-current':true*/
 			})}>
 				<ComposedComponent {...this.props} />
 			</div>)

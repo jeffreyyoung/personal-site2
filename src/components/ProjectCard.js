@@ -1,8 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import Link from './Link'
 import './ProjectCard.css'
 export default ({title, description, image, imageDescription, url}) => (
-	<Link className='no-underline' to={url}>
+	<Link loadJson className='no-underline' to={url}>
 		<div className='ProjectCard pointer grow' >
 			<div className='bg-white-50 br2 w-100 img-wrapper'>
 				<img src={image} className='br2 br--top w-100 img-wrapper' alt={imageDescription}/>
