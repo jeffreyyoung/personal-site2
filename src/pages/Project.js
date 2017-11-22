@@ -22,7 +22,7 @@ export default ({project, nextProject}) => {
 				</div>
 			</div>
       <Helmet>
-        <title>{project.title}</title>
+        <title>{project.meta.title}</title>
         <meta name="description" content={project.meta.description} />
       </Helmet>
 		</section>

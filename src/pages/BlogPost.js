@@ -21,11 +21,11 @@ export default withRouter(({post, location}) => {
         <p>Anything you would have done differently? Anything that could be done better?</p>
         <hr />
         <Helmet>
-          <title>{post.title}</title>
+          <title>{post.meta.title}</title>
           <meta name="description" content={post.meta.description} />
         </Helmet>
         <DisqusThread id={post.id}
-              title={post.title}
+              title={post.meta.title}
               path={location.pathname} />
         </div>}
 			</div>
