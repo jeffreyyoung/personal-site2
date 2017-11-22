@@ -2,6 +2,7 @@ import React from 'react';
 import ProjectCard from './../components/ProjectCard'
 import classnames from 'classnames'
 import NavBar from './../components/NavBar';
+import Helmet from 'react-helmet'
 
 export default ({projects}) => {
 	return (
@@ -15,7 +16,10 @@ export default ({projects}) => {
 						'pl3-ns': (i%2 !== 0)
 					})}><ProjectCard {...post}/></div>))}
 				</div>
-
+        <Helmet>
+          <title>Projects by Jeffrey</title>
+          <meta name="description" content={'A list of freelance, just for fun, and work projects'} />
+        </Helmet>
 			</div>
 		</div>
 	)

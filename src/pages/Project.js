@@ -1,6 +1,7 @@
 import React from 'react';
 import BackArrow from './../components/BackArrow'
 import ProjectCard from './../components/ProjectCard';
+import Helmet from 'react-helmet'
 import './Project.css'
 
 export default ({project, nextProject}) => {
@@ -20,6 +21,10 @@ export default ({project, nextProject}) => {
 					<ProjectCard {...nextProject}/>
 				</div>
 			</div>
+      <Helmet>
+        <title>{project.title}</title>
+        <meta name="description" content={project.meta.description} />
+      </Helmet>
 		</section>
 	)
 }

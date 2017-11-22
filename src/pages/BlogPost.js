@@ -3,6 +3,7 @@ import BackArrow from './../components/BackArrow'
 import './Project.css'
 import { withRouter } from 'react-router-dom'
 import DisqusThread from './../components/Disqus';
+import Helmet from 'react-helmet'
 
 export default withRouter(({post, location}) => {
 	if (!post) {
@@ -19,6 +20,10 @@ export default withRouter(({post, location}) => {
         
         <p>Anything you would have done differently? Anything that could be done better?</p>
         <hr />
+        <Helmet>
+          <title>{post.title}</title>
+          <meta name="description" content={post.meta.description} />
+        </Helmet>
         <DisqusThread id={post.id}
               title={post.title}
               path={location.pathname} />

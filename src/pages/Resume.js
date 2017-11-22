@@ -1,5 +1,7 @@
 import React from 'react';
 import NavBar from './../components/NavBar';
+import Helmet from 'react-helmet'
+
 export default ({resume}) => {
 	return (
 		<section className='bg-white'>
@@ -8,6 +10,10 @@ export default ({resume}) => {
 				{/*<h1 className='f1'>Resume</h1>*/}
 				{resume && <article className='lh-copy markdown-post' dangerouslySetInnerHTML={{__html: resume.html}} />}
 			</div>
+      <Helmet>
+        <title>Jeffrey's Resume</title>
+        <meta name="description" content={'Where Jeffrey Young has worked and where he went to shcool'} />
+      </Helmet>
 		</section>
 	)
 }

@@ -1,5 +1,7 @@
 import React from 'react';
 import NavBar from './../components/NavBar'
+import Helmet from 'react-helmet'
+
 export default (props) => {
 	return (
 		<section className='bg-white'>
@@ -12,6 +14,10 @@ export default (props) => {
 					<p>The purpose of Journal is to create a convenient way for people to record their life each day using facebook</p>
 				</div>
 			</div>
+      <Helmet>
+        <title>Journal Privacy Policy</title>
+        <meta name="description" content={'Journal App Privacy Policy'} />
+      </Helmet>
 		</section>
 	)
 }

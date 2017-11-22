@@ -1,5 +1,7 @@
 import React from 'react';
 import NavBar from './../components/NavBar';
+import Helmet from 'react-helmet'
+
 export default (props) => {
 	return (
 		<section className='bg-white'>
@@ -20,6 +22,10 @@ export default (props) => {
 					<Link to='/journal' className='dn reveal no-underline black grow f4 tc pointer'>Blog <span role='img' aria-label='point-down'>👉📖</span></Link>
 					
 				</div>*/}
+        <Helmet>
+          <title>Jeffrey Young</title>
+          <meta name="description" content={'Learn more about Jeffrey Young'} />
+        </Helmet>
 			</div>
 		</section>
 	)
