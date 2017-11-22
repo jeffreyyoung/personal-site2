@@ -10,7 +10,7 @@ export default withRouter(({post, location}) => {
 	}
 	return (
 		<section className='Project bg-white'>
-			<div className='center min-vh-100 pa3 pt5 measure-wide'>
+			<div className='center black-90 min-vh-100 pa3 pt5 measure-wide'>
 				<BackArrow to='/blog'> Blog</BackArrow>
         {post && <div>
 				<h1 className='f1'>{post.meta.title}</h1>

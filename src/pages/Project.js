@@ -9,7 +9,7 @@ export default ({project, nextProject}) => {
 	}
 	return (
 		<section className='Project bg-white'>
-			<div className='center min-vh-100 pa3 pt5 measure-wide'>
+			<div className='center min-vh-100 pa3 pt5 black-90 measure-wide'>
 				<BackArrow to='/projects'> Projects</BackArrow>
 				<h1 className='f1'>{project.meta.title}</h1>
 				<h3 className='f3 red'>{project.meta.description}</h3>

@@ -5,7 +5,7 @@ export default (props) => {
 		<section className='bg-white'>
 			<div className='center min-vh-100 pa3 pt5 flex-auto flex flex-column mw-1024'>
 					<NavBar />
-					<div className='flex-auto items-center justify-center'>
+					<div className='flex-auto items-center black-90 justify-center'>
 						<main>
 							<h1 className='reveal f1 f-subheadline-ns'>Hi.<span role='img' aria-label='wave-emoji'>👋</span> I'm Jeffrey</h1>
 							<h3 className='reveal f3 f2-ns'>I work at Adobe as a Software Engineer</h3>

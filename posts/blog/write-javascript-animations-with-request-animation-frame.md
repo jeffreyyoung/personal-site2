@@ -6,6 +6,7 @@ category: blog
 id: 203948902
 order: 10
 description: How to write a javascript alternative to animateMotion
+createdTime: Wed Nov 22 2017 00:38:32 GMT-0700 (MST)
 ---
 
 I recently was trying to write a simple svg animation for a client.  To finish the animation I needed to animate a circle along a bezier path.  I quickly found  [<animateMotion>](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/animateMotion) which made doing such an animation simple, but soon learned `animateMotion` is not supported by any versions of Internet Explorer. Since I had trouble finding any straight forward ways to do the animation using css, I decided to write the animation using javascript. Which brings us to: 

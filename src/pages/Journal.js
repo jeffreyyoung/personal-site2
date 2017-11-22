@@ -3,7 +3,7 @@ import NavBar from './../components/NavBar'
 export default (props) => {
 	return (
 		<section className='bg-white'>
-			<div className='center min-vh-100 pa3 flex flex-column justify-between mw-1024'>
+			<div className='center black-90 min-vh-100 pa3 flex flex-column justify-between mw-1024'>
 				<NavBar />
 				<div className='flex-grow'>
 					<h1 className='reveal f1 f-subheadline-ns'>Journal Privacy Policy</h1>

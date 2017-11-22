@@ -6,7 +6,7 @@ import NavBar from './../components/NavBar';
 export default ({projects}) => {
 	return (
 		<div className='Projects bg-white'>
-			<div className='center min-vh-100 pa3 pt5 flex flex-column mw-1024'>
+			<div className='center black-90 min-vh-100 pa3 pt5 flex flex-column mw-1024'>
 				<NavBar />
 				<h1 className='f1'>Projects</h1>
 				<div className='flex flex-wrap mw-1024 center'>
