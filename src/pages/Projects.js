@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
 import ProjectCard from './../components/ProjectCard'
 import classnames from 'classnames'
 import NavBar from './../components/NavBar';

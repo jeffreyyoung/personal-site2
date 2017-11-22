@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
 import NavBar from './../components/NavBar';
 export default (props) => {
 	return (
@@ -9,8 +8,8 @@ export default (props) => {
 					<div className='flex-auto items-center justify-center'>
 						<main>
 							<h1 className='reveal f1 f-subheadline-ns'>Hi.<span role='img' aria-label='wave-emoji'>👋</span> I'm Jeffrey</h1>
-							<h3 className='reveal f3 f1-ns'>I work at Adobe as a Software Engineer</h3>
-							<h3 className='reveal f3 f1-ns'>I like doing freelance web and mobile development</h3>
+							<h3 className='reveal f3 f2-ns'>I work at Adobe as a Software Engineer</h3>
+							<h3 className='reveal f3 f2-ns'>I like doing freelance web and mobile development</h3>
 						</main>
 					</div>
 				{/*<div className='w-100 flex justify-between flex-wrap'>

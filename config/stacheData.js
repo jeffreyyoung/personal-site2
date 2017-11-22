@@ -88,7 +88,11 @@ async function getFiles() {
 	]
 }
 
-data.set(getFiles, {
-	pathPrefix: __dirname +'/../public/data/',
-	pathSuffix: '.json'
-});
+function main() {
+	data.set(getFiles, {
+		pathPrefix: __dirname +'/../public/data/',
+		pathSuffix: '.json'
+	});
+}
+
+module.exports = main;

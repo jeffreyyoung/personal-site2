@@ -1,6 +1,5 @@
 import React from 'react';
 import NavBar from './../components/NavBar';
-import Link from './../components/Link';
 export default ({resume}) => {
 	return (
 		<section className='bg-white'>

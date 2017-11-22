@@ -11,13 +11,9 @@ const matter = require('gray-matter');
 const showdown = require('showdown');
 const converter = new showdown.Converter();
 converter.setFlavor('github');
-let lastPromise;
 
 module.exports = async function() {
-	if (!lastPromise) {
-		lastPromise = parseMdFiles();
-	}
-	return lastPromise;
+	return parseMdFiles();
 }
 
 async function getContainingFolderPath() {

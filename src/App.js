@@ -1,5 +1,5 @@
 import React from 'react';
-import { TransitionGroup, Transition } from 'react-transition-group'
+//import { TransitionGroup, Transition } from 'react-transition-group'
 import { BrowserRouter, Switch, Route, withRouter } from 'react-router-dom'
 import './App.css';
 import page from './hocs/page';
