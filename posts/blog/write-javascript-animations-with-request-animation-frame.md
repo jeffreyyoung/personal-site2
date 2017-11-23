@@ -13,12 +13,13 @@ I recently was trying to write a simple svg animation for a client.  To finish t
 
 ### How to animate a svg circle along an svg path using javascript.
 
-To do our animation we'll write a function that will execute one "step" of our animation.  Whenever we want to modify the dom, we'll call `requestAnimationFrame` and pass in our step function.  Letting the browser call our step function via `requestAnimationFrame` allows the browser to batch dom manipulations together, resulting in fewer unnecessary repaints, which means a more performant animation.
+To do our animation we'll write a function that will execute one "step" of our animation, and call that function repeatedly throughout the duration of our animation.  To help our animation to be more performant, we'll do all dom mutations within a callback function passed into  `requestAnimationFrame`.  Letting the browser call our animation function via `requestAnimationFrame` allows the browser to batch dom manipulations together, resulting in fewer unnecessary repaints, which means a more performant animation.
 
 ```javascript
 
 function animateProgress(duration /*duration of animation*/, animateElement /*callback function to animate our javascript element*/) {
   var start = null;
+
   function step(timestamp) {
     if (!start) {
       start = timestamp;
