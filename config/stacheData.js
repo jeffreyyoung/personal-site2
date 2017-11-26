@@ -1,6 +1,5 @@
 const mdFilesToJson = require('./mdFilesToJson');
-const data = require('static-data');
-
+const data = require('write-json-files');
 async function getFiles() {
 	const mdFiles = await mdFilesToJson();
 	const blogFiles = mdFiles
@@ -19,7 +18,7 @@ async function getFiles() {
 		.filter(m => m.path.startsWith('/projects'))
 		.map( (m, i) => {
 			let nextProject;
-			if (i == mdFiles.length - 1) {
+			if (i === mdFiles.filter(m => m.path.startsWith('/projects')).length - 1) {
 				nextProject = mdFiles[0];
 			} else {
 				nextProject = mdFiles[i+1];
@@ -33,6 +32,7 @@ async function getFiles() {
 				nextProject: {
 					title: nextProject.meta.title,
 					image: nextProject.meta.image,
+					imagePlaceholder: nextProject.meta.imagePlaceholder,
 					imageDescription: nextProject.meta.imageDescription,
 					description: nextProject.meta.description,
 					url: nextProject.path.replace('.md','')
@@ -52,9 +52,11 @@ async function getFiles() {
 				const projects = mdFiles
 					.filter(m => m.path.startsWith('/projects'))
 					.map(m => {
+						console.log('HEREEE?', m)
 						return {
 							title: m.meta.title,
 							image: m.meta.image,
+							imagePlaceholder: m.meta.imagePlaceholder,
 							imageDescription: m.meta.imageDescription,
 							description: m.meta.description,
 							url: m.path.replace('.md','')
@@ -89,10 +91,11 @@ async function getFiles() {
 }
 
 function main() {
+	console.log('GET FILES!!!');
 	data.set(getFiles, {
 		pathPrefix: __dirname +'/../public/data/',
 		pathSuffix: '.json'
 	});
 }
-
+main();
 module.exports = main;

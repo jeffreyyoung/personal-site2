@@ -6,5 +6,6 @@
 	overflow: hidden;
 }
 .ProjectCard img {
+	height: 16rem;
 	object-fit: cover;
 }

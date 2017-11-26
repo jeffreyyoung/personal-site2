@@ -9,7 +9,7 @@ description: What I built to be a finalist of a Adobe Analytics Hackathon
 
 Last December Adobe had a week long hackathon where any engineer could build anything they wanted as long as whatever they built related to Adobe in some way.
 
-![Demo of Collaborative Workspace](/collaboration-demo.gif)
+![Demo of Collaborative Workspace](/images/collaboration-demo.gif)
 
 I spend most of my time working on Analysis Workspace. AW is product that users can use to create dashboards to view web traffic analytics.  One problem with Analysis Workspace is that only one user can edit a dashboard at a time.  If multiple users, logged in on different computers, edit the same dashboard, each user will be overriding the other users changes.
 

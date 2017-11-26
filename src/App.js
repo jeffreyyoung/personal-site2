@@ -1,4 +1,5 @@
 import React from 'react';
+import 'lazysizes';
 //import { TransitionGroup, Transition } from 'react-transition-group'
 import { BrowserRouter, Switch, Route, withRouter } from 'react-router-dom'
 import './App.css';

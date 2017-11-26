@@ -2,8 +2,7 @@ import React from 'react';
 import NavBar from './../components/NavBar';
 import Helmet from 'react-helmet'
 import img from './instagram.jpg'
-export default (props) => {
-	console.log('IMG???', img);
+export default (props) => {	
 	return (
 		<section className='bg-white'>
 			<div className='center min-vh-100 pa3 pt5 flex-auto flex flex-column mw-1024'>
@@ -23,7 +22,6 @@ export default (props) => {
 					<Link to='/journal' className='dn reveal no-underline black grow f4 tc pointer'>Blog <span role='img' aria-label='point-down'>👉📖</span></Link>
 					
 				</div>*/}
-				<img src={img} />
         <Helmet>
           <title>Jeffrey Young</title>
           <meta name="description" content={'Learn more about Jeffrey Young'} />

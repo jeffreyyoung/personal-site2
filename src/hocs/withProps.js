@@ -39,8 +39,10 @@ export default (ComposedComponent) => {
 			return (
 				<Helmet key={345898095}>
 					<script>{`
-						if (window && !window._jCache) { window._jCache = {};}
-						window._jCache['${this.jsonPath}'] = ${JSON.stringify(this.state.childProps)}
+						if (window && !window.__j_cache) { window.__j_cache = {};}
+						window.__j_cache['${window.location.pathname}'] = ${JSON.stringify(this.state.childProps)}
+						
+						console.log('mew')
 					`}</script>
 				</Helmet>
 			)

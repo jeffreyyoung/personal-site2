@@ -2,9 +2,9 @@ import React from 'react';
 import BackArrow from './../components/BackArrow'
 import './Project.css'
 import { withRouter } from 'react-router-dom'
-import DisqusThread from './../components/Disqus';
+import DisqusThread from './../components/Disqus'
 import Helmet from 'react-helmet'
-
+import 'highlight.js/styles/github.css'
 export default withRouter(({post, location}) => {
 	if (!post) {
 		return <noscript />

@@ -4,7 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="theme-color" content="#000000">
-    <script>if (window && !window._jCache) { window._jCache = {};}</script>
+    <script>
+      if (window && !window.__j_cache) { window.__j_cache = {};}
+      if (navigator.userAgent === 'ReactSnap') {
+        window && window.lazySizesConfig.loadMode = 0;
+      };
+    </script>
 		<!--
       manifest.json provides metadata used when your web app is added to the
       homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
@@ -33,5 +38,17 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+  <script async defer>
+    if (navigator.userAgent === 'ReactSnap') {
+      setTimeout(function() {
+        console.log('SETTING ATTRIBUTE');
+        document.querySelectorAll('script')
+          .forEach(s => {
+            console.log('SETTING ATTRIBUTE');
+            s.setAttribute('async', '');
+          });
+      })
+    };
+  </script>
   </body>
 </html>
