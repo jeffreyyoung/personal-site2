@@ -19,7 +19,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "node ./config/stacheData.js && react-scripts build && gulp critical && react-snap",
+    "build": "node ./config/stacheData.js && react-scripts build && react-snap",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "serve": "serve -s build",
